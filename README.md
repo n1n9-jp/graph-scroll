@@ -1,10 +1,10 @@
 # graph-scroll.js
 
-Simple scrolling events for [d3](https://github.com/mbostock/d3) graphs. Based on [stack](https://github.com/mbostock/stack.git)
+[d3](https://github.com/mbostock/d3) グラフのシンプルなスクロール イベント。[stack](https://github.com/mbostock/stack.git) に基づいています。
 
 ### [Demo/Documentation](http://1wheel.github.io/graph-scroll/)
 
-*graph-scroll* takes a selection of explanatory text sections and dispatches `active` events as different sections are scrolled into to view. These `active` events can be used to update a chart's state.
+*graph-scroll* は、説明テキスト セクションの選択を受け取り、異なるセクションがスクロールされて表示されると `active` イベントを送信します。これらの `active` イベントは、チャートの状態を更新するために使用できます。
 
 ```
 d3.graphScroll()
@@ -12,7 +12,7 @@ d3.graphScroll()
     .on('active', function(i){ console.log(i + 'th section active') })
 ```
 
-The top most element scrolled fully into view is classed `graph-scroll-active`. This makes it easy to highlight the active section with css: 
+完全にスクロールされて表示される一番上の要素は、`graph-scroll-active` クラスに分類されます。これにより、CSS を使用してアクティブなセクションを簡単に強調表示できます:
 
 ```
 #sections > div{
@@ -24,7 +24,7 @@ The top most element scrolled fully into view is classed `graph-scroll-active`. 
 }
 ```
 
-To support headers and intro images/text, we use a container element containing the explanatory text and graph.
+ヘッダーと紹介画像/テキストをサポートするために、説明テキストとグラフを含むコンテナ要素を使用します。
 
 ```
 <h1>Page Title</div>
@@ -39,7 +39,7 @@ To support headers and intro images/text, we use a container element containing 
 <h1>Footer</h1>
 ```
 
-If these elements are passed to graphScroll as selections with `container` and `graph`, every element in the graph selection will be classed `graph-scroll-graph` if the top of the container is out of view. 
+これらの要素が `container` と `graph` による選択として graphScroll に渡された場合、コンテナーの上部が表示範囲外にある場合、グラフ選択内のすべての要素は `graph-scroll-graph` に分類されます。
 
 ```
 d3.graphScroll()
@@ -50,7 +50,7 @@ d3.graphScroll()
 
 ```
 
-When the graph starts to scroll out of view, `position: sticky` keeps the graph element stuck to the top of the page while the text scrolls by.
+グラフがスクロールして表示されなくなると、`p​​osition: sticky` により、テキストがスクロールする間、グラフ要素がページの上部に固定されたままになります。
 
 ```
 #container{
@@ -71,7 +71,7 @@ When the graph starts to scroll out of view, `position: sticky` keeps the graph 
 ```
 
 
-On mobile centering the graph and sections while adding a some padding for the first slide is a good option:
+モバイルでは、グラフとセクションを中央に配置し、最初のスライドにいくらかのパディングを追加するのが良いオプションです。
 
 ```
 @media (max-width: 925px)  {
@@ -89,13 +89,13 @@ On mobile centering the graph and sections while adding a some padding for the f
 }
 ```
 
-Adjust the amount of pixels before a new section is triggered is also helpful on mobile (Defaults to 200 pixels):
+新しいセクションがトリガーされる前のピクセル数を調整することも、モバイルでは役立ちます (デフォルトは 200 ピクセル)。
 
 ```
 graphScroll.offset(300)
 ```
 
-To update or replace a graphScroll instance, pass a string to `eventId` to remove the old event listeners: 
+graphScroll インスタンスを更新または置換するには、文字列を `eventId` に渡して古いイベントリスナーを削除します。
 
 ```
 graphScroll.eventId('uniqueId1')
